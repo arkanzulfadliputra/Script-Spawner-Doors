@@ -1,0 +1,24 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeianRussell/Kavo-UI-Library/main/Movable.source.lua"))()
+local Window = Library.CreateLib("Nerd V5", "GrapeTheme")
+
+local Key = "Nerd Supported" -- Set your secret key here
+
+local Tab = Window:NewTab("Key System")
+local Section = Tab:NewSection("Enter Key")
+
+local KeyInput
+Section:NewTextBox("Enter Key", "Type here...", function(value)
+    KeyInput = value
+end)
+
+Section:NewButton("Submit", "Check Key", function()
+    if KeyInput == Key then
+        Library:Notify("Access Granted!", "Correct key entered!")
+        
+        -- Load your script here after successful key input
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/arkanzulfadliputra/Script-/refs/heads/main/Nerd%20V5%20Script%20Doors"))()
+        
+    else
+        Library:Notify("Access Denied!", "Incorrect key!")
+    end
+end)
